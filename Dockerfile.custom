@@ -1,0 +1,9 @@
+FROM antora/antora
+
+# Add Mogztter's antora-lunr extension (https://github.com/Mogztter/antora-lunr)
+RUN yarn global add antora-lunr
+
+# Until https://gitlab.com/antora/antora/issues/178 is fixed, replace (by
+# copying over) the default site generator executable with the customized
+# version that integrates the antora-lunr component.
+COPY antora-lunr/additional-files/generate-site.js /usr/local/share/.config/yarn/global/node_modules/@antora/site-generator-default/lib
