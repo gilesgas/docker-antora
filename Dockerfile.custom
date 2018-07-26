@@ -1,0 +1,6 @@
+FROM antora/antora
+
+# Install inotify-tools to provide the inotifywait command that detects when
+# source files have changed, which in turn re-runs the antora command
+# (via live-regenerate.sh).
+RUN apk add --no-cache inotify-tools
