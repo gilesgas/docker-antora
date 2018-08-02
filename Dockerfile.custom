@@ -1,5 +1,8 @@
 FROM antora/antora
 
+# Install the OpenJDK Java 8 Runtime (no GUI support)
+RUN apk add --no-cache openjdk8-jre-base
+
 # Install openssh-client to provide the ssh-add command that can add (an)
 # external SSH credential/s, which in turn can be used by the antora command to
 # access private Git repos.
