@@ -6,6 +6,9 @@ RUN apk add --no-cache openjdk8-jre-base
 # Install the Git distributed version control system
 RUN apk add --no-cache git
 
+# Install zip (according to kramos/alpine-zip)
+RUN apk add --update zip
+
 # Install openssh-client to provide the ssh-add command that can add (an)
 # external SSH credential/s, which in turn can be used by the antora command to
 # access private Git repos.
