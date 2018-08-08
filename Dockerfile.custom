@@ -26,10 +26,11 @@ COPY antora-lunr/additional-files/generate-site.js /usr/local/share/.config/yarn
 RUN apk --update add py-pip
 
 # Install Python (development tools/files) and other resources necessary to
-# build Linkchecker
+# build LinkChecker (with some resource requirements adapted from
+# https://hub.docker.com/r/moxventura/linkchecker-runner/~/dockerfile/)
 RUN apk --update add python-dev gcc musl-dev
 
-# Install Linkchecker
+# Install LinkChecker
 RUN pip install git+https://github.com/linkchecker/linkchecker.git
 
 # Install AWS CLI
