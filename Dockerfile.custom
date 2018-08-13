@@ -20,7 +20,7 @@ RUN yarn global add antora-lunr
 # Until https://gitlab.com/antora/antora/issues/178 is fixed, replace (by
 # copying over) the default site generator executable with the customized
 # version that integrates the antora-lunr component.
-COPY antora-lunr/additional-files/generate-site.js /usr/local/share/.config/yarn/global/node_modules/@antora/site-generator-default/lib
+COPY additional-files/antora-lunr/generate-site.js /usr/local/share/.config/yarn/global/node_modules/@antora/site-generator-default/lib
 
 # Install Python pip (package manager)
 RUN apk --update add py-pip
@@ -32,6 +32,9 @@ RUN apk --update add python-dev gcc musl-dev
 
 # Install LinkChecker
 RUN pip install git+https://github.com/linkchecker/linkchecker.git
+
+# Install custom configurations of LinkChecker's linkcheckerrc file
+COPY additional-files/linkchecker/linkcheckerrc /root/.config/linkchecker
 
 # Install PHP7 tools
 RUN apk --no-cache add php7 php7-dom
