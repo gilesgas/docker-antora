@@ -7,7 +7,7 @@ RUN apk add --no-cache openjdk8-jre-base
 RUN apk add --no-cache git
 
 # Install zip (according to kramos/alpine-zip)
-RUN apk add --update zip
+RUN apk add --no-cache zip
 
 # Install openssh-client to provide the ssh-add command that can add (an)
 # external SSH credential/s, which in turn can be used by the antora command to
@@ -23,12 +23,12 @@ RUN yarn global add antora-lunr
 COPY additional-files/antora-lunr/generate-site.js /usr/local/share/.config/yarn/global/node_modules/@antora/site-generator-default/lib
 
 # Install Python pip (package manager)
-RUN apk --update add py-pip
+RUN apk --no-cache add py-pip
 
 # Install Python (development tools/files) and other resources necessary to
 # build LinkChecker (with some resource requirements adapted from
 # https://hub.docker.com/r/moxventura/linkchecker-runner/~/dockerfile/)
-RUN apk --update add python-dev gcc musl-dev
+RUN apk --no-cache add python-dev gcc musl-dev
 
 # Install LinkChecker
 RUN pip install git+https://github.com/linkchecker/linkchecker.git
