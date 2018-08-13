@@ -34,7 +34,7 @@ RUN apk --no-cache add python-dev gcc musl-dev
 RUN pip install git+https://github.com/linkchecker/linkchecker.git
 
 # Install custom configurations of LinkChecker's linkcheckerrc file
-COPY additional-files/linkchecker/linkcheckerrc /root/.config/linkchecker
+COPY additional-files/linkchecker/linkcheckerrc /root/.config/linkchecker/linkcheckerrc
 
 # Install PHP7 tools
 RUN apk --no-cache add php7 php7-dom
